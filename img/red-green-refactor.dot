@@ -1,0 +1,14 @@
+digraph {
+
+    RED[label="RED",color="red"];
+    GREEN[label="GREEN",color="green"];
+    REFACTOR[label="REFACTOR",color="blue"];
+        
+    GREEN -> REFACTOR ;
+    GREEN -> RED;
+    RED -> GREEN;
+    REFACTOR -> GREEN;
+    
+    {rank=source; GREEN}
+    
+}

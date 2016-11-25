@@ -1,0 +1,14 @@
+digraph {
+    node [shape=box]
+    M[label="master"]; # new requirement: Pause Indication disables handling of timeout event.
+    ES[label="extract-subroutines"]; # new requirement: BUG! SnakeController receives new FoodInd/Resp at invalid position! This is related only to m_mapDimension, so there are some extractible classes (SOLID: Single Responsibility)
+    EC[label="extract-subclasses"]; # new requirement: Our beloved collegues from Moscow have deployed new, shiny Position and Dimension classes that have some nice features... and more important -- designated as incoming standard of in/out SnakeController communication! Scalar values are prone to errors and meaningless on their own. Fighting primitives is one step towards semantic programming - express programmer thought instead of obscured bitshift calculations.
+    FP[label="fight-primitives"]; # new requirement: Client want to receive ScoreInd with value of current snake length! (GRASP: Information Expert)
+    EL[label="extract-logic"]; # new requirement: Torus World. 'T' in config instead of 'W'. New tests are initialy disabled, old tests remain valid. (SOLID: Interface Segregation)
+    IS[label="interface-segregation"]; # this is final step, evaluate now
+    HEAD[label="HEAD", color="red"];
+
+    IS -> EL -> FP -> EC -> ES -> M;
+    HEAD -> M
+	{ rank=same; HEAD M }
+}
