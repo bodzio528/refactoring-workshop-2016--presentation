@@ -1,4 +1,5 @@
 digraph {
+    node [width=1.2,shape=circle,fixedsize=true]
 
     RED[label="RED",color="red"];
     GREEN[label="GREEN",color="green"];
@@ -9,6 +10,21 @@ digraph {
     RED -> GREEN;
     REFACTOR -> GREEN;
     
-    {rank=source; GREEN}
+    {rank=source; RED}
+    {rank=same; GREEN; REFACTOR}
+}
+
+digraph {
+    node [width=1.2,shape=circle,fixedsize=true]
+
+    RED[label="RED",color="red"];
+    GREEN[label="GREEN",color="green"];
+    REFACTOR[label="REFACTOR",color="blue"];
+
+    RED -> GREEN;
+    GREEN -> REFACTOR ;
+    REFACTOR -> RED;
     
+    {rank=source; RED}
+    {rank=same; GREEN; REFACTOR}
 }
