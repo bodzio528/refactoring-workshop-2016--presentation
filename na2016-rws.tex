@@ -201,23 +201,62 @@ Refactoring is a controlled technique for improving the design of an existing co
 \end{enumerate}
 \end{frame}
 
-
 \subsection{Extract Subroutines}
 
-\begin{frame}
-\frametitle{Task \thesubsection: Extract Subroutines}
+\subsubsection{Cyclomatic complexity}
 
-\begin{narrowblock}{Client's Story}
-I want receiving Pause Indication to disable handling of timeout events.
+\begin{frame}
+\frametitle{Task \thesubsection.\thesubsubsection: Extract Subroutines - Cyclomatic complexity}
+
+\begin{narrowblock}{New internal requirements}
+There should be no function in our code that have cyclomatic complexity bigger than 10.
 \end{narrowblock}
 
 \pause
-\begin{narrowblock}{Hints}
+\begin{narrowblock}{Task}
 \begin{itemize}[<+->]
-\item WET (in fact, massive duplications)
-\item Overengineering (try-catch for message dispatch\textellipsis)
-\item Split \texttt{receive} method into manageable pieces.
-\item New Unit Tests are available on anti-product branch.
+\item \texttt{git clone https://github.com/terryyin/lizard.git <lizzardpath>}
+\item \texttt{python <lizzardpath>/lizzard.py -CCN 10 -w SnakeController/SnakeController.cpp}
+\item Try to fix all the warnings
+\end{itemize}
+\end{narrowblock}
+\end{frame}
+
+\subsubsection{RTTI usage removal}
+
+\begin{frame}
+\frametitle{Task \thesubsection.\thesubsubsection: Extract Subroutines - RTTI usage removal}
+
+\begin{narrowblock}{New nonfunctional requirement}
+Our company is about to deploy to a new architecture which has no support for RTTI
+\end{narrowblock}
+
+\pause
+\begin{narrowblock}{Task}
+\begin{itemize}[<+->]
+ \item Checkout \texttt{1-2-rtti-baseline} or merge \texttt{1-2-rtti-anti-product}
+ \item Make project green again.
+ \item HINT: Note that \texttt{Event} has \texttt{getMessageId} function.
+\end{itemize}
+\end{narrowblock}
+\end{frame}
+
+\subsubsection{PauseInd}
+
+\begin{frame}
+\frametitle{Task \thesubsection.\thesubsubsection: Extract Subroutines - New feature}
+
+\begin{narrowblock}{New functional requirement}
+SnakeController should implement new feature - pause
+\end{narrowblock}
+
+\pause
+\begin{narrowblock}{Task}
+\begin{itemize}[<+->]
+ \item Checkout \texttt{1-3-pause-baseline} or merge \texttt{1-3-pause-anti-product}
+ \item Make project green again.
+ \item HINT: New message was introduced \texttt{PauseInd}
+ \item HINT: PauseInd enables or disables pause feature
 \end{itemize}
 \end{narrowblock}
 \end{frame}
@@ -294,7 +333,7 @@ Simon says: Torus World.
 \begin{itemize}[<+->]
 \item 'T' in config string instead of 'W' indicates this feature enabled.
 \item SOLID: Interface Segregation.
-\item New Unit Tests are available on anti-product branch.
+\item Checkout \texttt{5-torus-world-baseline} or merge \texttt{5-torus-world-anti-product}
 \end{itemize}
 \end{narrowblock}
 \end{frame}
