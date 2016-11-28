@@ -269,13 +269,17 @@ SnakeController should implement new feature - pause
 \begin{narrowblock}{Client's Story}
 \textbf{BUG!} SnakeController places new food at invalid position! Another FoodReq should be sent in such case.
 \end{narrowblock}
-
 \pause
-\begin{narrowblock}{Hints}
+\begin{narrowblock}{Task}
 \begin{itemize}[<+->]
-\item This issue is related only to gameboard dimension.
-\item SOLID: Single Responsibility.
-\item New Unit Tests are available on anti-product branch.
+ \item Get UTs or example implementation of previous work
+ \begin{itemize}[<+->]
+  \item checkout \texttt{2-bug-baseline}, or
+  \item merge with \texttt{2-bug-anti-product}.
+ \end{itemize}
+ \item Extract models: Segments and World; anemic for now.
+ \item HINT: This issue is related only to gameboard dimension.
+ \item HINT: Single Responsibility Principle.
 \end{itemize}
 \end{narrowblock}
 \end{frame}
@@ -285,16 +289,20 @@ SnakeController should implement new feature - pause
 \begin{frame}
 \frametitle{Task \thesubsection: Fight Primitives}
 
-\begin{narrowblock}{Client's Story}
+\begin{narrowblock}{New internal  requirement}
 Our collegues from Moscow have deployed new, shiny \texttt{Position} and \texttt{Dimension} classes that have some nice features. More important thing -- those are designated as incoming standard of in/out SnakeController communication!
 \end{narrowblock}
 
 \pause
-\begin{narrowblock}{Hints}
+\begin{narrowblock}{Task}
 \begin{itemize}[<+->]
-\item Scalar values are prone to errors and meaningless on their own. 
-\item Expressing programmer thought in domain language is better than obscured bitshift calculations.
-\item Mentioned interface update is available on anti-product branch.
+ \item Get UTs or example implementation of previous work
+ \begin{itemize}[<+->]
+  \item checkout \texttt{3-fight-primitives-baseline}, or
+  \item merge with \texttt{3-update-interface-anti-product}.
+ \end{itemize}
+\item HINT: Scalar values are prone to errors and meaningless on their own. 
+\item HINT: Expressing programmer thought in domain language is better than obscured bitshift calculations.
 \end{itemize}
 \end{narrowblock}
 \end{frame}
@@ -309,12 +317,16 @@ I want to receive Score Indication with value of current snake length!
 \end{narrowblock}
 
 \pause
-\begin{narrowblock}{Hints}
+\begin{narrowblock}{Task}
 \begin{itemize}[<+->]
-\item This is related only to snake internal representation.
-\item Tell, do not ask!
-\item GRASP: Information Expert.
-\item New Unit Tests are available on anti-product branch.
+ \item Get UTs or example implementation of previous work
+ \begin{itemize}[<+->]
+  \item checkout \texttt{4-extract-logic-baseline}, or
+  \item merge \texttt{4-update-score-indication-anti-product}.
+ \end{itemize}
+\item Enhance created Anemic models with some operations.
+\item HINT: Utilize tell, don't ask!
+\item HINT: Utilize GRASP: Information Expert.
 \end{itemize}
 \end{narrowblock}
 \end{frame}
@@ -325,15 +337,15 @@ I want to receive Score Indication with value of current snake length!
 \frametitle{Task \thesubsection: Extract Interface}
 
 \begin{narrowblock}{Client's Story}
-Simon says: Torus World.
+Simon says: \textbf{Torus World}.
 \end{narrowblock}
 
 \pause
-\begin{narrowblock}{Hints}
+\begin{narrowblock}{Task}
 \begin{itemize}[<+->]
-\item 'T' in config string instead of 'W' indicates this feature enabled.
-\item SOLID: Interface Segregation.
 \item Checkout \texttt{5-torus-world-baseline} or merge \texttt{5-torus-world-anti-product}
+\item 'T' in config string instead of 'W' indicates this feature enabled.
+\item HINT: Utilize Interface Segregation.
 \end{itemize}
 \end{narrowblock}
 \end{frame}
